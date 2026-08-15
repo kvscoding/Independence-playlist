@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>independence special Music Player</title>
+    <title>GenZ Protest Music Library</title>
     <style>
       :root {
         color-scheme: dark;
@@ -11,9 +11,9 @@
         --glass-border: rgba(255, 255, 255, 0.15); /* Soft light border */
         --primary-text: #ffffff;
         --secondary-text: rgba(255, 255, 255, 0.7);
-        --theme-green: #25D366;
-        --play-bg: rgba(255, 255, 255, 0.9);
-        --play-icon: #111;
+        --theme-accent: #E63946; /* Strong protest red */
+        --play-bg: #E63946;
+        --play-icon: #ffffff;
       }
 
       * {
@@ -28,7 +28,7 @@
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: var(--primary-text);
         overflow: hidden;
-        background: url('1786752152987.png') center / cover no-repeat fixed;
+        background: url('grok_image_1786756665702.jpg') center / cover no-repeat fixed;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -58,9 +58,9 @@
       }
       .online-dot {
         width: 8px; height: 8px;
-        background-color: var(--theme-green);
+        background-color: var(--theme-accent);
         border-radius: 50%;
-        box-shadow: 0 0 8px var(--theme-green);
+        box-shadow: 0 0 8px var(--theme-accent);
       }
 
       /* --- BOTTOM CONTAINER --- */
@@ -183,7 +183,7 @@
         appearance: none;
         height: 3px;
         border-radius: 2px;
-        background: linear-gradient(90deg, #fff 0 var(--progress, 0%), rgba(255,255,255,0.2) var(--progress, 0%) 100%);
+        background: linear-gradient(90deg, var(--theme-accent) 0 var(--progress, 0%), rgba(255,255,255,0.2) var(--progress, 0%) 100%);
         cursor: pointer;
       }
       .seek::-webkit-slider-thumb {
@@ -218,7 +218,7 @@
       .btn-play svg { margin-left: 2px; }
       .btn-play .pause-icon { display: none; margin: 0; }
       .playing .play-icon { display: none; }
-      .playing .pause-icon { display: block; }
+      .playing .pause-icon { display: block; margin-left: 0; }
 
       #youtube-player { position: fixed; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 
@@ -233,16 +233,16 @@
   </head>
 
   <body>
-    <!-- Top Bar (Cleaned up: Only Time & Online count left) -->
+    <!-- Top Bar -->
     <header class="top-bar">
-      <div class="time-display" id="clock">2:29 AM</div>
-      <div class="online-status"><div class="online-dot"></div> 251 online</div>
+      <div class="time-display" id="clock">12:00 AM</div>
+      <div class="online-status"><div class="online-dot"></div> 3,402 listening</div>
     </header>
 
     <!-- Bottom Interface -->
     <div class="bottom-container">
       
-      <!-- Instagram Banner (Replaces WhatsApp) -->
+      <!-- Instagram Banner -->
       <a href="https://www.instagram.com/just_uncaffeinated?igsh=dmdnZnIxd2t0MTRw" target="_blank" class="insta-link">
         <div class="promo-banner">
           <div class="insta-icon">
@@ -263,7 +263,7 @@
         <img id="cover" class="cover" src="" alt="" />
         
         <div class="track-details">
-          <div class="title" id="song-title">Loading...</div>
+          <div class="title" id="song-title">Loading Resistance...</div>
           <div class="artist" id="artist">Please wait</div>
           <div class="progress-row">
             <input class="seek" id="seek" type="range" min="0" max="100" value="0" />
@@ -298,8 +298,8 @@
         document.getElementById("clock").innerText = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
       }, 1000);
 
-      // Your YouTube Playlist ID
-      const PLAYLIST_ID = "PL0Z67tlyTaWo-c_QyUnhsoa4cUwceCmRu";
+      // GenZ Protest Music Library Playlist ID
+      const PLAYLIST_ID = "PLXIapu-nR1To";
 
       let player = null;
       let isPlaying = false;
